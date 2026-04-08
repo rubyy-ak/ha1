@@ -89,6 +89,21 @@ class CalculatorTest {
     }
 
 
-    //TODO hier weitere Tests erstellen
+
+    // Teilaufgabe 1: Commit für neuer grüner Test
+    @Test
+    @DisplayName("soll das Vorzeichen einer Zahl wechseln")
+    void testNegativeToggle(){
+        Calculator calc = new Calculator();
+
+        calc.pressDigitKey(5); // 5
+        calc.pressNegativeKey(); // -5
+        calc.pressNegativeKey(); // 5
+
+        String expected = "5";
+        String actual = calc.readScreen();
+
+        assertEquals(excepted, actual);
+    }
 }
 
