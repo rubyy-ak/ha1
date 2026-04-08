@@ -105,5 +105,39 @@ class CalculatorTest {
 
         assertEquals(excepted, actual);
     }
+
+
+    // Teilaufgabe 2: Commit für 2 rote Tests
+    // Test 1
+    @Test
+    @DisplayName("soll nichts tun, wenn '=' ohne vorherige Operation gedrückt wird")
+    void testEqualsWithoutOperation() {
+        Calculator calc = new Calculator();
+
+        calc.pressDigitKey(5); // Eingabe belibige Zahl
+        calc.pressEqualsKey(); // '=' ohne vorherige Operation
+
+        String expected = "5";
+        String actual = calc.readScreen();
+
+        assertEquals(expected, actual);
+    }
+
+    // Test 2
+    @Test
+    @DisplayName("soll Zwischenergebnis berechnen, wenn Operation zweimal gedrückt wird")
+    void testChainedOperation() {
+        Calculator calc = new Calculator();
+
+        calc.pressDigitKey(2); //erste Zahl
+        calc.pressBinaryOperationKey("+"); // Operation speichern
+        calc.pressDigitKey(3); // zweite Zahl
+        calc.pressBinaryOperationKey("+"); // sollte 2 + 3 berechnen
+
+        String expected = "5"; // erwartetes Zwischenergebnis
+        String actual = calc.readScreen();
+
+        assertEquals(expected, actual);
+    }
 }
 
