@@ -103,7 +103,7 @@ class CalculatorTest {
         String expected = "5";
         String actual = calc.readScreen();
 
-        assertEquals(excepted, actual);
+        assertEquals(expected, actual);
     }
 
 
@@ -114,7 +114,7 @@ class CalculatorTest {
     void testEqualsWithoutOperation() {
         Calculator calc = new Calculator();
 
-        calc.pressDigitKey(5); // Eingabe belibige Zahl
+        calc.pressDigitKey(5); // Eingabe beliebige Zahl
         calc.pressEqualsKey(); // '=' ohne vorherige Operation
 
         String expected = "5";
@@ -140,4 +140,3 @@ class CalculatorTest {
         assertEquals(expected, actual);
     }
 }
-
